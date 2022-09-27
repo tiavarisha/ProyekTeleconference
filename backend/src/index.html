@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Test</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center mt-3">
+        <canvas id="channel1"></canvas>
+        <script type="text/javascript" src="jsmpeg.min.js"></script>
+        
+        <script type="text/javascript">
+            var canvas = document.getElementById('channel1');
+            var websocket = new WebSocket("ws://localhost:9999");
+            var player= new jsmpeg(websocket, {canvas:canvas, autoplay:true, loop:true})
+        </script>
+    </div>  
+    <div class="text-center mt-3">
+        <h3>EDI</h3>
+    </div>
+</body>
+</html>
