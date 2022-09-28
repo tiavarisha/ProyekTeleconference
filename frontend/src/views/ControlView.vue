@@ -38,12 +38,15 @@ canvas{
 }
 </style>
 
-<script type="application/javascript">
-export default {
-    mounted(){
-        var canvas = document.getElementById('channel1');
-        var websocket = new WebSocket("ws://localhost:5173");
-        var player= new jsmpeg(websocket, {canvas:canvas, autoplay:true, loop:true})
+<script>
+    import { loadPlayer } from 'rtsp-relay/browser';
+
+    export default {
+        mounted(){
+            loadPlayer({
+            url: 'ws://localhost:2000/api/stream',
+            canvas: document.getElementById('channel1')
+            });
+        }
     }
-}
 </script>
